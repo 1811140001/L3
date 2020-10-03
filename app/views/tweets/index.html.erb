@@ -1,0 +1,31 @@
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+
+<div style='text-align:center'>
+     <%= link_to 'ツイートする', '/tweets/new' %>
+     </div>
+
+<% @tweets.each do |tweet| %>
+    <div style='text-align:center'>
+        
+     <%= tweet.message %>
+     <br>
+     <br>
+     <% jikan = Time.current.to_i - tweet.tdate.to_i %>
+     <% jikan = jikan / 60 %>
+     <%= "#{jikan} 分経過" %>
+     <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+     <%= link_to '編集', "/tweets/#{tweet.id}/edit" %>
+     <%= link_to '表示', "/tweets/#{tweet.id}" %>
+     
+    </div>
+    <hr />
+    
+    
+    
+<% end %>
+<br>
+<br>
+ 
+     

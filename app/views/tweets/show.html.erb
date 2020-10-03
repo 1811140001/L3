@@ -1,0 +1,7 @@
+<%= @tweets.message %>
+     <br>
+     <br>
+     <% jikan = Time.current.to_i - @tweets.tdate.to_i %>
+     <% jikan = jikan / 60 %>
+     <%= "#{jikan} 分経過" %>
+     <%= link_to '戻る', "/" %>
